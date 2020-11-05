@@ -1,0 +1,92 @@
+* {
+  /* border: 2pt solid pink; */
+  color: #F7867E;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  display:flex;
+  justify-content: space-evenly;
+  background: url(https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.players {
+  width: 25vw;
+  flex-direction: column;
+}
+
+.gameboard{
+  display:flex;
+  justify-content: center;
+  width: 50vw;
+  height: 75vh;
+  border-radius: 10px;
+  align-items: center;
+  background-color: #037B99;
+  opacity: 90%;
+}
+
+.grid {
+  width: 40vw;
+  height: 60vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  /* background-color: #533A7B; */
+  /* border: 1px solid #533A7B; */
+  /* opacity: 50%; */
+}
+
+.box {
+  border-color: #533A7B;
+}
+
+.box.top {
+  border-bottom-style: groove;
+}
+
+.box.bottom {
+  border-top-style: groove;
+}
+
+.box.left {
+  border-right-style: groove;
+}
+
+.box.right {
+  border-left-style: groove;
+}
+
+.display-wins {
+  width: 20vw;
+  height: 60vh;
+  background-color: #F7867E;
+  opacity: 70%;
+}
+
+p,
+h1 {
+  color: black;
+  background-color: #F7867E;
+  opacity: 80%;
+  padding: 1px 10px 1px 10px;
+}
