@@ -55,6 +55,10 @@ section {
 
 .box {
   border-color: #533A7B;
+  font-size: 35pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .box.top {
