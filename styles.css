@@ -51,9 +51,6 @@ section {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  /* background-color: #533A7B; */
-  /* border: 1px solid #533A7B; */
-  /* opacity: 50%; */
 }
 
 .box {
