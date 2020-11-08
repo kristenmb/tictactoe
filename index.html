@@ -3,38 +3,43 @@
 
 <head>
   <title>Rainforest TicTacToe</title>
+  <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 
 <body>
   <section class="players">
-    <p>Player 1</p>
-    <article class="display-wins"></article>
+    <p>🦜 Wins</p>
+    <article class="display-wins">
+      <p class="wins">0</p>
+    </article>
   </section>
   <section class="center">
-    <h1>It's Player 1's turn</h1>
+    <h1>It's 🦜's turn</h1>
     <article class="gameboard">
       <div class="grid">
-        <article class="box top left"></article>
-        <article class="box top"></article>
-        <article class="box top right"></article>
-        <article class="box left"></article>
-        <article class="box"></article>
-        <article class="box right"></article>
-        <article class="box bottom left"></article>
-        <article class="box bottom"></article>
-        <article class="box bottom right"></article>
+        <article class="box top left" id="0"></article>
+        <article class="box top" id="1"></article>
+        <article class="box top right" id="2"></article>
+        <article class="box left" id="3"></article>
+        <article class="box" id="4"></article>
+        <article class="box right" id="5"></article>
+        <article class="box bottom left" id="6"></article>
+        <article class="box bottom" id="7"></article>
+        <article class="box bottom right" id="8"></article>
       </div>
     </article>
   </section>
   <section class="players">
-    <p>Player 2</p>
-    <article class="display-wins"></article>
+    <p> 🌺 Wins</p>
+    <article class="display-wins">
+      <p class="wins">0</p>
+      </article>
   </section>
 </body>
-<script src="./src/main.js"></script>
-<script src="./src/game.js"></script>
 <script src="./src/player.js"></script>
+<script src="./src/game.js"></script>
+<script src="./src/main.js"></script>
 
 </html>

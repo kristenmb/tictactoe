@@ -1,5 +1,4 @@
 * {
-  /* border: 2pt solid pink; */
   color: #F7867E;
   font-family: 'Space Grotesk', sans-serif;
 }
@@ -55,6 +54,10 @@ section {
 
 .box {
   border-color: #533A7B;
+  font-size: 35pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .box.top {
@@ -78,6 +81,15 @@ section {
   height: 60vh;
   background-color: #F7867E;
   opacity: 70%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wins {
+  font-size: 70pt;
+  opacity: 100%;
 }
 
 p,
@@ -86,4 +98,8 @@ h1 {
   background-color: #F7867E;
   opacity: 80%;
   padding: 1px 10px 1px 10px;
+}
+
+h1 {
+  font-size: 20pt;
 }
