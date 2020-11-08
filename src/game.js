@@ -5,7 +5,6 @@ class Game {
     this.activePlayer = player1;
     this.playerOneMoves = [];
     this.playerTwoMoves = [];
-    this.inPlay = true;
     this.clickCount = 0;
     this.winConditions = [
       [0, 1, 2],
@@ -25,10 +24,7 @@ class Game {
     } else {
       this.activePlayer = player1;
     };
-    //switchplayer every click
-    //if activePlayer is 1, change activePlayer to 2, else change to 1.
     gamePlayDisplay.innerText = `It's ${this.activePlayer.token}'s turn`
-    //change innterHTML to display "it's ____'s turn"
   }
 
   checkWinConditions() {
@@ -57,14 +53,8 @@ class Game {
   }
 
   resetGameboard() {
-    console.log('timeout')
-    //clear all game pieces.
     for(var i = 0; i <boxes.length; i++) {
       boxes[i].innerHTML = ''
     }
-    //inPlay = true
-    this.inPlay = true;
-    //set timeout?
-
   }
 }

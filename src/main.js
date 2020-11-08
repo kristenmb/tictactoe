@@ -2,8 +2,7 @@ var gameboardGrid = document.querySelector('.grid')
 var gamePlayDisplay = document.querySelector('h1');
 var boxes = document.querySelectorAll('.box');
 
-gameboardGrid.addEventListener('click', addMark)
-
+gameboardGrid.addEventListener('click', addMark);
 
 var player1 = new Player('one', '🦜');
 var player2 = new Player('two', '🌺');
@@ -22,5 +21,5 @@ function addMark() {
 }
 
 function updateWins() {
-  
+
 }
