@@ -13,7 +13,7 @@ function addMark() {
   if (boxClicked.innerHTML === '') {
     boxClicked.innerHTML = `${game.activePlayer.token}`;
   }
-
+  game.activePlayer.board[`${event.target.id}`] = `${event.target.id}`;
   game.clickCount++;
   game.checkWinConditions();
   game.checkDrawConditions();
