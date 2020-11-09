@@ -3,8 +3,6 @@ class Game {
     this.playerOne = player1;
     this.playerTwo = player2;
     this.activePlayer = player1;
-    this.playerOneMoves = [];
-    this.playerTwoMoves = [];
     this.clickCount = 0;
     this.winConditions = [
       [0, 1, 2],
@@ -28,20 +26,19 @@ class Game {
   }
 
   checkWinConditions() {
-    console.log("not a win")
-    //if a win: HOW TO CHECK WIN CONDITIONS???
-    //loop through win conditions, check to see if matching boxes have been clicked by same player, if yes - win, if no - switch player.
-    // if("win conditions met") {
-    // //add win to winning player's wins array-- actual board displayed?
-    // playerX.wins.push('win');
-    // //change inPlay to false
-    // this.inPlay = false;
-    // //resetGameboard
-    // setTimeout(this.resetGameboard, 1000);
-    // //else switchPlayer
-    // } else {
-    // switchPlayer();
-    // }
+    for (var i = 0; i < this.winConditions.length; i++) {
+      var a = this.winConditions[i][0];
+      var b = this.winConditions[i][1];
+      var c = this.winConditions[i][2];
+      if (this.activePlayer.board.includes(a) && this.activePlayer.board.includes(b) && this.activePlayer.board.includes(c)) {
+        gamePlayDisplay.innerText = `${this.activePlayer.token} wins!`
+        console.log('winner');
+        this.activePlayer.wins++;
+        this.clickCount = 0
+        // setTimeout(this.displayWinner, 500);
+        setTimeout(this.resetGameboard, 1000);
+      }
+    }
   }
 
   checkDrawConditions() {
@@ -52,9 +49,17 @@ class Game {
     }
   }
 
+  displayWinner() {
+    gamePlayDisplay.innerText = `${game.activePlayer.token} wins!`
+  }
+
   resetGameboard() {
+    playerOneWinDisplay.innerText = player1.wins;
+    playerTwoWinDisplay.innerText = player2.wins;
     for(var i = 0; i <boxes.length; i++) {
       boxes[i].innerHTML = ''
     }
+    player1.board = [];
+    player2.board = [];
   }
 }
