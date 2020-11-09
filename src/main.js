@@ -4,14 +4,21 @@ var boxes = document.querySelectorAll('.box');
 var playerOneWinDisplay = document.querySelector('.one-wins');
 var playerTwoWinDisplay = document.querySelector('.two-wins');
 
+window.addEventListener('load', createGame);
 gameboardGrid.addEventListener('click', addMark);
-
 
 var player1 = new Player('one', '🦜');
 var player2 = new Player('two', '🌺');
 var game = new Game(player1, player2);
 
 
+function createGame() {
+  event.preventDefault();
+  player1.retrieveWinsFromStorage();
+  player2.retrieveWinsFromStorage();
+  playerOneWinDisplay.innerText = player1.wins || 0;
+  playerTwoWinDisplay.innerText = player2.wins || 0;
+}
 
 function addMark() {
   var boxClicked = event.target;
@@ -31,6 +38,8 @@ function updatePlayer() {
 function manageGamePlay() {
   game.clickCount++;
   game.checkWinConditions();
+  player1.saveWinsToStorage();
+  player2.saveWinsToStorage();
   game.checkDrawConditions();
   game.switchPlayer();
 }
