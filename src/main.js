@@ -31,6 +31,8 @@ function updatePlayer() {
 function manageGamePlay() {
   game.clickCount++;
   game.checkWinConditions();
+  player1.saveWinsToStorage();
+  player2.saveWinsToStorage();
   game.checkDrawConditions();
   game.switchPlayer();
 }
