@@ -2,12 +2,13 @@ class Player {
   constructor(id, token) {
     this.id = id;
     this.token = token;
-    this.wins = [];
+    this.wins = 0;
     this.board = [
       '', '', '',
       '', '', '',
       '', '', '',
     ];
+
   }
 
   saveWinsToStorage() {
@@ -20,3 +21,7 @@ class Player {
     var parsedWins = JSON.parse(retrieved);
   }
 }
+
+
+//when player wins save
+//onpage reload retrieve.
