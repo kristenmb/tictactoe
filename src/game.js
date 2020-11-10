@@ -1,8 +1,9 @@
 class Game {
-  constructor(player1, player2) {
-    this.playerOne = player1;
-    this.playerTwo = player2;
-    this.activePlayer = player1;
+  constructor() {
+    this.playerOne = new Player('one', '🦜');;
+    this.playerTwo = new Player('two', '🌺');
+    this.activePlayer = this.playerOne;
+    //waitingplayer??
     this.clickCount = 0;
     this.winConditions = [
       [0, 1, 2],
@@ -17,12 +18,15 @@ class Game {
   }
 
   switchPlayer() {
-    if (this.activePlayer === player1) {
-      this.activePlayer = player2;
+    if (this.activePlayer === this.playerOne) {
+      this.activePlayer = this.playerTwo;
     } else {
-      this.activePlayer = player1;
+      this.activePlayer = this.playerOne;
     };
-    gamePlayDisplay.innerText = `It's ${this.activePlayer.token}'s turn`
+  }
+
+  updatePlayerBoard() {
+    game.activePlayer.board[`${event.target.id}`] = parseInt(`${event.target.id}`);
   }
 
   checkWinConditions() {
@@ -31,12 +35,13 @@ class Game {
       var b = this.winConditions[i][1];
       var c = this.winConditions[i][2];
       if (this.activePlayer.board.includes(a) && this.activePlayer.board.includes(b) && this.activePlayer.board.includes(c)) {
-        gamePlayDisplay.innerText = `${this.activePlayer.token} wins!`
-        console.log('winner');
         this.activePlayer.wins++;
         this.clickCount = 0
-        // setTimeout(this.displayWinner, 500);
-        setTimeout(this.resetGameboard, 1000);
+        this.playerOne.saveWinsToStorage();
+        this.playerTwo.saveWinsToStorage();
+        this.activePlayer.winner = true;
+        // setTimeout(resetGameboard, 1000)
+        // this.resetGame();
       }
     }
   }
@@ -44,22 +49,17 @@ class Game {
   checkDrawConditions() {
     if(this.clickCount === 9) {
       this.clickCount = 0;
-      gamePlayDisplay.innerText = `It's a draw!`;
-      setTimeout(this.resetGameboard, 1000);
+      this.activePlayer.draw = true;
     }
   }
 
-  displayWinner() {
-    gamePlayDisplay.innerText = `${game.activePlayer.token} wins!`
-  }
+  resetGame() {
+  this.playerOne.board = [];
+  this.playerOne.draw = false;
+  this.playerOne.winner = false;
+  this.playerTwo.board = [];
+  this.playerTwo.draw = false;
+  this.playerTwo.winner = false;
+}
 
-  resetGameboard() {
-    playerOneWinDisplay.innerText = player1.wins;
-    playerTwoWinDisplay.innerText = player2.wins;
-    for(var i = 0; i <boxes.length; i++) {
-      boxes[i].innerHTML = ''
-    }
-    player1.board = [];
-    player2.board = [];
-  }
 }

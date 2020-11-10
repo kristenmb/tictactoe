@@ -3,6 +3,8 @@ class Player {
     this.id = id;
     this.token = token;
     this.wins = 0;
+    this.winner = false;
+    this.draw = false;
     this.board = [
       '', '', '',
       '', '', '',
@@ -19,7 +21,3 @@ class Player {
     this.wins = JSON.parse(localStorage.getItem(`${this.id} wins`));
   }
 }
-
-
-//when player wins save
-//onpage reload retrieve.
