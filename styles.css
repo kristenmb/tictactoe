@@ -87,11 +87,25 @@ section {
 
 .players {
   width: 25vw;
+  display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .wins {
   font-size: 70pt;
+  opacity: 100%;
+}
+
+.btns {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px;
+  background-color : #05C705;
+  opacity: 70%;
+}
+
+.btns:hover {
   opacity: 100%;
 }
 
