@@ -10,11 +10,10 @@ class Player {
       '', '', '',
       '', '', '',
     ];
-
   }
 
   saveWinsToStorage() {
-    localStorage.setItem(`${this.id} wins`, JSON.stringify(this.wins))
+    localStorage.setItem(`${this.id} wins`, JSON.stringify(this.wins));
   }
 
   retrieveWinsFromStorage() {
