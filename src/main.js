@@ -6,10 +6,16 @@ var playerOneWinDisplay = document.querySelector('#one-wins');
 var playerTwoWinDisplay = document.querySelector('#two-wins');
 var gameWinner = document.querySelector('#winner');
 var resetButton = document.querySelector('#reset');
+var factsButton = document.querySelector('#facts');
+var mainPageButton = document.querySelector('#main');
+var mainPage = document.querySelector('#main-page');
+var factsPage = document.querySelector('#facts-page');
 
 window.addEventListener('load', beginGame);
 gameboardGrid.addEventListener('click', addPlayerMark);
 resetButton.addEventListener('click', resetLocalStorage);
+factsButton.addEventListener('click', openFactsPage);
+mainPageButton.addEventListener('click', openMainPage);
 
 function beginGame() {
   if (localStorage['one wins'] > 0) {
@@ -69,7 +75,7 @@ function resetGameboard() {
   playerTwoWinDisplay.innerText = game.playerTwo.wins;
   for (var i = 0; i < boxes.length; i++) {
     boxes[i].innerHTML = '';
-    boxes[i].classList.remove("full");
+    boxes[i].classList.remove('full');
   }
   game.resetGame(game.playerOne);
   game.resetGame(game.playerTwo);
@@ -83,4 +89,18 @@ function resetLocalStorage() {
   playerOneWinDisplay.innerText = 0;
   playerTwoWinDisplay.innerText = 0;
   gameWinner.classList.add('hidden');
+}
+
+function openFactsPage() {
+  toggleView(mainPage, factsPage);
+}
+
+function openMainPage() {
+  toggleView(factsPage, mainPage);
+}
+
+
+function toggleView(hide, show) {
+  hide.classList.add('hidden');
+  show.classList.remove('hidden');
 }
