@@ -8,32 +8,36 @@
 </head>
 <body>
   <section class="players">
-    <p>🦜 Wins</p>
+    <p aria-label="Green and red parrot emoji">🦜 Wins</p>
     <article class="display-wins">
       <p class="wins" id="one-wins">0</p>
     </article>
   </section>
   <section class="center">
     <div class="gameplay-display">
-      <h1 id="player">It's 🦜's turn</h1>
-      <h2 id="winner"></h2>
+      <h1 id="player">
+        It's 🦜's turn
+      </h1>
+      <h2 class="hidden" id="winner">
+        Winner announcement will be displayed here.
+      </h2>
     </div>
     <article class="gameboard">
       <div class="grid" id="game-grid">
-        <article class="box top left" id="0"></article>
-        <article class="box top" id="1"></article>
-        <article class="box top right" id="2"></article>
-        <article class="box left" id="3"></article>
-        <article class="box" id="4"></article>
-        <article class="box right" id="5"></article>
-        <article class="box bottom left" id="6"></article>
-        <article class="box bottom" id="7"></article>
-        <article class="box bottom right" id="8"></article>
+        <div class="box top left" id="0"></div>
+        <div class="box top" id="1"></div>
+        <div class="box top right" id="2"></div>
+        <div class="box left" id="3"></div>
+        <div class="box" id="4"></div>
+        <div class="box right" id="5"></div>
+        <div class="box bottom left" id="6"></div>
+        <div class="box bottom" id="7"></div>
+        <div class="box bottom right" id="8"></div>
       </div>
     </article>
   </section>
   <section class="players">
-    <p> 🌺 Wins</p>
+    <p aria-label="Pink tropical flower emoji"> 🌺 Wins</p>
     <article class="display-wins">
       <p class="wins" id="two-wins">0</p>
     </article>
@@ -42,5 +46,4 @@
 <script src="./src/player.js"></script>
 <script src="./src/game.js"></script>
 <script src="./src/main.js"></script>
-
 </html>
