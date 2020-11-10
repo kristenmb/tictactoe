@@ -3,6 +3,8 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
   background: url(https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
 }
 
@@ -15,6 +17,14 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+h1,
+h2 {
+  font-size: 20pt;
+  background-color: #F7867E;
+  opacity: 80%;
+  padding: 1px 10px 1px 10px;
 }
 
 /* ~~~~~~GAMEBOARD~~~~~~ */
@@ -90,10 +100,6 @@ section {
   justify-content: space-evenly;
 }
 
-.wins {
-  font-size: 70pt;
-  opacity: 100%;
-}
 
 .btns {
   border: 0;
@@ -107,6 +113,18 @@ section {
   opacity: 100%;
 }
 
+.player-wins {
+  font-size: 20pt;
+  background-color: #F7867E;
+  opacity: 80%;
+  padding: 1px 10px 1px 10px;
+}
+
+.wins {
+  font-size: 70pt;
+  opacity: 100%;
+}
+
 /* ~~~~~~GAMEBOARD HEADING~~~~~~ */
 .game-page {
   display: flex;
@@ -117,22 +135,59 @@ section {
   font-size: 20pt;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
 }
 
-p,
-h1,
-h2 {
-  font-size: 20pt;
-  background-color: #F7867E;
-  opacity: 80%;
-  padding: 1px 10px 1px 10px;
+/* ~~~~~~~FACTS PAGE~~~~~~~ */
+.rainforest-facts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
 }
 
-p,
-h2 {
-  font-size: 15pt;
+.facts {
+  width: 70vw;
+  height: 75vh;
+  background-color: #037B99;
+  opacity: 90%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.facts-para {
+  background-color: transparent;
+  width: 70%;
+  text-align: center;
+}
+
+.main-btn {
+  width: auto;
+  height: auto;
+}
+
+a {
+  color: #05C705;
+}
+
+.facts-head {
+  max-width:50vw;
+  padding-bottom:10px;
+  position:relative;
+}
+
+.facts-head:after {
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  background: black;
+  height: 5px;
+  border-radius: 10px;
 }
 
 .hidden {
