@@ -1,9 +1,8 @@
 class Game {
   constructor() {
-    this.playerOne = new Player('one', '🦜');;
+    this.playerOne = new Player('one', '🦜');
     this.playerTwo = new Player('two', '🌺');
     this.activePlayer = this.playerOne;
-    //waitingplayer??
     this.clickCount = 0;
     this.winConditions = [
       [0, 1, 2],
@@ -36,30 +35,24 @@ class Game {
       var c = this.winConditions[i][2];
       if (this.activePlayer.board.includes(a) && this.activePlayer.board.includes(b) && this.activePlayer.board.includes(c)) {
         this.activePlayer.wins++;
-        this.clickCount = 0
+        this.clickCount = 0;
         this.playerOne.saveWinsToStorage();
         this.playerTwo.saveWinsToStorage();
         this.activePlayer.winner = true;
-        // setTimeout(resetGameboard, 1000)
-        // this.resetGame();
       }
     }
   }
 
   checkDrawConditions() {
-    if(this.clickCount === 9) {
+    if (this.clickCount === 9) {
       this.clickCount = 0;
       this.activePlayer.draw = true;
     }
   }
 
-  resetGame() {
-  this.playerOne.board = [];
-  this.playerOne.draw = false;
-  this.playerOne.winner = false;
-  this.playerTwo.board = [];
-  this.playerTwo.draw = false;
-  this.playerTwo.winner = false;
-}
-
+  resetGame(player) {
+  player.board = [];
+  player.draw = false;
+  player.winner = false;
+  }
 }
