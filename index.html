@@ -9,11 +9,11 @@
 <body>
   <div class="game-page" id="main-page">
   <section class="players">
-    <p aria-label="Green and red parrot emoji">🦜 Wins</p>
+    <p class="player-wins" aria-label="Green and red parrot emoji">🦜 Wins</p>
     <article class="display-wins">
-      <p class="wins" id="one-wins">0</p>
+      <p class="player-wins wins" id="one-wins">0</p>
     </article>
-    <button class="btns" id="facts">Rainforest Facts</button>
+    <button class="btns" id="facts">Why Rainforests?</button>
   </section>
   <section class="center">
     <div class="gameplay-display">
@@ -39,14 +39,27 @@
     </article>
   </section>
   <section class="players">
-    <p aria-label="Pink tropical flower emoji"> 🌺 Wins</p>
+    <p class="player-wins" aria-label="Pink tropical flower emoji"> 🌺 Wins</p>
     <article class="display-wins">
-      <p class="wins" id="two-wins">0</p>
+      <p class="player-wins wins" id="two-wins">0</p>
     </article>
     <button class="btns" id="reset">Reset Game</button>
   </section>
   </div>
-  <section class="hidden" id="facts-page"></section>
+  <section class="rainforest-facts hidden" id="facts-page">
+    <article class="facts">
+      <h2 class="facts-para facts-head">THE IMPORTANCE OF RAINFORESTS</h2>
+      <p class="facts-para">Rainforests are one of the most bio-diverse regions in the world, and are essential to the balance of life on Earth.
+      </p>
+      <p class="facts-para">"Not only do they provide air, water, medicine, food, and shelter to a multitude of living beings, they are also one of our best natural defenses against climate change because of their capacity to absorb greenhouse gases from the atmosphere."
+        <a href="https://www.rainforest-alliance.org/pictures/9-rainforest-facts-everyone-should-know" target="_blank"><sup>1</sup></a>
+      </p>
+      <p class="facts-para">
+        The world's rainforests are indespensible. You can do your part by supporting organizations and products that promote rainforest preservation and sustainability.
+      </p>
+    </article>
+    <button class="btns main-btn" id="main">Back to Game</button>
+  </section>
 </body>
 <script src="./src/player.js"></script>
 <script src="./src/game.js"></script>
