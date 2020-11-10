@@ -1,45 +1,76 @@
-var gameboardGrid = document.querySelector('.grid')
-var gamePlayDisplay = document.querySelector('h1');
+var game = new Game();
+var gameboardGrid = document.querySelector('#game-grid')
+var gamePlayDisplay = document.querySelector('#player');
 var boxes = document.querySelectorAll('.box');
-var playerOneWinDisplay = document.querySelector('.one-wins');
-var playerTwoWinDisplay = document.querySelector('.two-wins');
+var playerOneWinDisplay = document.querySelector('#one-wins');
+var playerTwoWinDisplay = document.querySelector('#two-wins');
+var gameWinner = document.querySelector('#winner');
 
 window.addEventListener('load', createGame);
 gameboardGrid.addEventListener('click', addMark);
 
-var player1 = new Player('one', '🦜');
-var player2 = new Player('two', '🌺');
-var game = new Game(player1, player2);
-
-
 function createGame() {
-  event.preventDefault();
-  player1.retrieveWinsFromStorage();
-  player2.retrieveWinsFromStorage();
-  playerOneWinDisplay.innerText = player1.wins || 0;
-  playerTwoWinDisplay.innerText = player2.wins || 0;
+  if(localStorage['one wins'] > 0) {
+    game.playerOne.retrieveWinsFromStorage();
+  }
+  if(localStorage['two wins'] > 0) {
+    game.playerTwo.retrieveWinsFromStorage();
+  }
+  playerOneWinDisplay.innerText = game.playerOne.wins || 0;
+  playerTwoWinDisplay.innerText = game.playerTwo.wins || 0;
 }
 
 function addMark() {
   var boxClicked = event.target;
-  //&& boxclicked hasn't been clicked....
-  //click on box adds a class or value in an object ... check if "clicked" is there if not click it.
-  if (boxClicked.innerHTML === '') {
+  if (boxClicked.innerHTML === '' && !boxClicked.classList.contains("full")) {
     boxClicked.innerHTML = `${game.activePlayer.token}`;
+    boxClicked.classList.add("full");
+    gameWinner.innerText = '';
+    game.clickCount++;
+    game.updatePlayerBoard();
+    manageGamePlay();
+    continueGamePlay();
+    changeDisplay();
   }
-  updatePlayer();
-  manageGamePlay();
-}
-
-function updatePlayer() {
-  game.activePlayer.board[`${event.target.id}`] = parseInt(`${event.target.id}`);
 }
 
 function manageGamePlay() {
-  game.clickCount++;
   game.checkWinConditions();
-  player1.saveWinsToStorage();
-  player2.saveWinsToStorage();
   game.checkDrawConditions();
+  changeDisplay();
+  if (game.activePlayer.winner === true) {
+    displayWinner();
+    setTimeout(resetGameboard, 1000);
+    game.resetGame();
+  }
+  if (game.activePlayer.draw === true) {
+    displayDraw();
+    setTimeout(resetGameboard, 1000);
+    game.resetGame();
+  }
+}
+
+function changeDisplay() {
+    gamePlayDisplay.innerText = `It's ${game.activePlayer.token}'s turn`;
+  }
+
+function displayWinner() {
+    gameWinner.innerText = `${game.activePlayer.token} wins!`
+  }
+
+function displayDraw() {
+    gameWinner.innerText = `It's a draw`
+  }
+
+function resetGameboard() {
+  playerOneWinDisplay.innerText = game.playerOne.wins;
+  playerTwoWinDisplay.innerText = game.playerTwo.wins;
+  for(var i = 0; i <boxes.length; i++) {
+    boxes[i].innerHTML = ''
+    boxes[i].classList.remove("full");
+  }
+}
+
+function continueGamePlay() {
   game.switchPlayer();
 }
