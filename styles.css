@@ -8,25 +8,9 @@ body {
   background: url(https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
 }
 
-.gameplay-display {
-  font-size: 20pt;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 html {
   height: 100%;
   width: 100%;
-}
-
-p,
-h1 {
-  color: black;
-  background-color: #F7867E;
-  opacity: 80%;
-  padding: 1px 10px 1px 10px;
 }
 
 section {
@@ -35,7 +19,7 @@ section {
   align-items: center;
 }
 
-/* GameBoard */
+/* ~~~~~~GAMEBOARD~~~~~~ */
 .box {
   border-color: #533A7B;
   font-size: 35pt;
@@ -89,13 +73,7 @@ section {
   grid-template-rows: repeat(3, 1fr);
 }
 
-h2 {
-  color: black;
-  background-color: #F7867E;
-  opacity: 80%;
-}
-
-/* Player Columns */
+/* ~~~~~~PLAYER COLUMNS~~~~~~ */
 .display-wins {
   width: 20vw;
   height: 60vh;
@@ -107,12 +85,39 @@ h2 {
   align-items: center;
 }
 
+.players {
+  width: 25vw;
+  flex-direction: column;
+}
+
 .wins {
   font-size: 70pt;
   opacity: 100%;
 }
 
-.players {
-  width: 25vw;
+/* ~~~~~~GAMEBOARD HEADING~~~~~~ */
+.gameplay-display {
+  font-size: 20pt;
+  display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+p,
+h1,
+h2 {
+  font-size: 20pt;
+  background-color: #F7867E;
+  opacity: 80%;
+  padding: 1px 10px 1px 10px;
+}
+
+p,
+h2 {
+  font-size: 15pt;
+}
+
+.hidden {
+  display: none;
 }

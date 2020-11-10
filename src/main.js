@@ -1,76 +1,75 @@
 var game = new Game();
-var gameboardGrid = document.querySelector('#game-grid')
 var gamePlayDisplay = document.querySelector('#player');
 var boxes = document.querySelectorAll('.box');
+var gameboardGrid = document.querySelector('#game-grid');
 var playerOneWinDisplay = document.querySelector('#one-wins');
 var playerTwoWinDisplay = document.querySelector('#two-wins');
 var gameWinner = document.querySelector('#winner');
 
-window.addEventListener('load', createGame);
-gameboardGrid.addEventListener('click', addMark);
+window.addEventListener('load', beginGame);
+gameboardGrid.addEventListener('click', addPlayerMark);
+resetButton.addEventListener('click', resetLocalStorage);
 
-function createGame() {
-  if(localStorage['one wins'] > 0) {
+function beginGame() {
+  if (localStorage['one wins'] > 0) {
     game.playerOne.retrieveWinsFromStorage();
   }
-  if(localStorage['two wins'] > 0) {
+  if (localStorage['two wins'] > 0) {
     game.playerTwo.retrieveWinsFromStorage();
   }
   playerOneWinDisplay.innerText = game.playerOne.wins || 0;
   playerTwoWinDisplay.innerText = game.playerTwo.wins || 0;
 }
 
-function addMark() {
+function addPlayerMark() {
   var boxClicked = event.target;
   if (boxClicked.innerHTML === '' && !boxClicked.classList.contains("full")) {
     boxClicked.innerHTML = `${game.activePlayer.token}`;
     boxClicked.classList.add("full");
-    gameWinner.innerText = '';
+    gameWinner.classList.add('hidden');
     game.clickCount++;
     game.updatePlayerBoard();
     manageGamePlay();
     continueGamePlay();
-    changeDisplay();
+    changePlayerTurnDisplay();
   }
 }
 
 function manageGamePlay() {
   game.checkWinConditions();
   game.checkDrawConditions();
-  changeDisplay();
-  if (game.activePlayer.winner === true) {
-    displayWinner();
-    setTimeout(resetGameboard, 1000);
-    game.resetGame();
-  }
-  if (game.activePlayer.draw === true) {
-    displayDraw();
-    setTimeout(resetGameboard, 1000);
-    game.resetGame();
-  }
+  changePlayerTurnDisplay();
+  changeWinStatusDisplay();
 }
 
-function changeDisplay() {
-    gamePlayDisplay.innerText = `It's ${game.activePlayer.token}'s turn`;
-  }
+function changePlayerTurnDisplay() {
+  gamePlayDisplay.innerText = `It's ${game.activePlayer.token}'s turn`;
+}
 
-function displayWinner() {
-    gameWinner.innerText = `${game.activePlayer.token} wins!`
+function changeWinStatusDisplay() {
+  if (game.activePlayer.winner) {
+    gameWinner.classList.remove("hidden");
+    gameWinner.innerText = `${game.activePlayer.token} wins!`;
+    setTimeout(resetGameboard, 1000);
   }
-
-function displayDraw() {
-    gameWinner.innerText = `It's a draw`
-  }
-
-function resetGameboard() {
-  playerOneWinDisplay.innerText = game.playerOne.wins;
-  playerTwoWinDisplay.innerText = game.playerTwo.wins;
-  for(var i = 0; i <boxes.length; i++) {
-    boxes[i].innerHTML = ''
-    boxes[i].classList.remove("full");
+  if (game.activePlayer.draw) {
+    gameWinner.classList.remove("hidden");
+    gameWinner.innerText = `It's a draw`;
+    setTimeout(resetGameboard, 1000);
   }
 }
 
 function continueGamePlay() {
   game.switchPlayer();
+}
+
+function resetGameboard() {
+  playerOneWinDisplay.innerText = game.playerOne.wins;
+  playerTwoWinDisplay.innerText = game.playerTwo.wins;
+  for (var i = 0; i < boxes.length; i++) {
+    boxes[i].innerHTML = '';
+    boxes[i].classList.remove("full");
+  }
+  game.resetGame(game.playerOne);
+  game.resetGame(game.playerTwo);
 }
