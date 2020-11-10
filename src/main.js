@@ -99,7 +99,6 @@ function openMainPage() {
   toggleView(factsPage, mainPage);
 }
 
-
 function toggleView(hide, show) {
   hide.classList.add('hidden');
   show.classList.remove('hidden');
