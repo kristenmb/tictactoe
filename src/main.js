@@ -5,6 +5,7 @@ var gameboardGrid = document.querySelector('#game-grid');
 var playerOneWinDisplay = document.querySelector('#one-wins');
 var playerTwoWinDisplay = document.querySelector('#two-wins');
 var gameWinner = document.querySelector('#winner');
+var resetButton = document.querySelector('#reset');
 
 window.addEventListener('load', beginGame);
 gameboardGrid.addEventListener('click', addPlayerMark);
@@ -72,4 +73,14 @@ function resetGameboard() {
   }
   game.resetGame(game.playerOne);
   game.resetGame(game.playerTwo);
+}
+
+function resetLocalStorage() {
+  localStorage.clear();
+  resetGameboard();
+  game.playerOne.wins = 0;
+  game.playerTwo.wins = 0;
+  playerOneWinDisplay.innerText = 0;
+  playerTwoWinDisplay.innerText = 0;
+  gameWinner.classList.add('hidden');
 }
