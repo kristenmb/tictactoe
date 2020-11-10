@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Rainforest TicTacToe</title>
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
-
 <body>
   <section class="players">
     <p>🦜 Wins</p>
     <article class="display-wins">
-      <p class="one-wins">0</p>
+      <p class="wins" id="one-wins">0</p>
     </article>
   </section>
   <section class="center">
-    <h1>It's 🦜's turn</h1>
+    <div class="gameplay-display">
+      <h1 id="player">It's 🦜's turn</h1>
+      <h2 id="winner"></h2>
+    </div>
     <article class="gameboard">
-      <div class="grid">
+      <div class="grid" id="game-grid">
         <article class="box top left" id="0"></article>
         <article class="box top" id="1"></article>
         <article class="box top right" id="2"></article>
@@ -34,7 +35,7 @@
   <section class="players">
     <p> 🌺 Wins</p>
     <article class="display-wins">
-      <p class="two-wins">0</p>
+      <p class="wins" id="two-wins">0</p>
     </article>
   </section>
 </body>
