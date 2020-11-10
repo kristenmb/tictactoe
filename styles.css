@@ -100,12 +100,11 @@ h2 {
   justify-content: space-evenly;
 }
 
-
 .btns {
   border: 0;
   border-radius: 8px;
   padding: 8px;
-  background-color : #05C705;
+  background-color: #05C705;
   opacity: 70%;
 }
 
@@ -174,17 +173,17 @@ a {
 }
 
 .facts-head {
-  max-width:50vw;
-  padding-bottom:10px;
-  position:relative;
+  max-width: 30vw;
+  padding-bottom: 10px;
+  position: relative;
 }
 
 .facts-head:after {
-  content:'';
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background: black;
   height: 5px;
   border-radius: 10px;
