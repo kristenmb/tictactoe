@@ -7,13 +7,15 @@ var playerTwoWinDisplay = document.querySelector('#two-wins');
 var gameWinner = document.querySelector('#winner');
 var resetButton = document.querySelector('#reset');
 var factsButton = document.querySelector('#facts');
+var mainPageButton = document.querySelector('#main');
 var mainPage = document.querySelector('#main-page');
 var factsPage = document.querySelector('#facts-page');
 
 window.addEventListener('load', beginGame);
 gameboardGrid.addEventListener('click', addPlayerMark);
 resetButton.addEventListener('click', resetLocalStorage);
-factsButton.addEventListener('click', togglePages);
+factsButton.addEventListener('click', openFactsPage);
+mainPageButton.addEventListener('click', openMainPage);
 
 function beginGame() {
   if (localStorage['one wins'] > 0) {
@@ -89,10 +91,16 @@ function resetLocalStorage() {
   gameWinner.classList.add('hidden');
 }
 
-function togglePages(page) {
-  //hide main page
-  mainPage.classList.add('hidden');
-  //unhide facts page
-  factsPage.classList.remove('hidden');
+function openFactsPage() {
+  toggleView(mainPage, factsPage);
+}
 
+function openMainPage() {
+  toggleView(factsPage, mainPage);
+}
+
+
+function toggleView(hide, show) {
+  hide.classList.add('hidden');
+  show.classList.remove('hidden');
 }
