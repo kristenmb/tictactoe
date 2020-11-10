@@ -7,11 +7,13 @@
   <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 <body>
+  <div class="game-page" id="main-page">
   <section class="players">
     <p aria-label="Green and red parrot emoji">🦜 Wins</p>
     <article class="display-wins">
       <p class="wins" id="one-wins">0</p>
     </article>
+    <button class="btns" id="facts">Rainforest Facts</button>
   </section>
   <section class="center">
     <div class="gameplay-display">
@@ -43,6 +45,8 @@
     </article>
     <button class="btns" id="reset">Reset Game</button>
   </section>
+  </div>
+  <section class="hidden" id="facts-page"></section>
 </body>
 <script src="./src/player.js"></script>
 <script src="./src/game.js"></script>
