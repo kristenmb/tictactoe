@@ -46,6 +46,10 @@ Click [here](https://gist.github.com/kristenmb/07a3b9c79b42d07a26dc9686c36f330c)
 
 * Proper Use of Local Storage - Determining when and where to save or retrieve from storage was initially a challenege. At first, the player wins wouldn't save appropriately, and the retreieval would not reflect the actual win count. Once I sorted out the order of operations, everything worked as planned! 
 
+* While attempting to get my site to pass the Wave Extensions test I ran into an issue of having an empty HTML element that would eventually display the win or draw status of the game. Due to this, I included a short phrase that will be read by a screen reader when the site opens, but is hidden from view initially. I was not sure if this was considered best practice, but I liked the accessibility it added, so I included it. 
+
+![](https://media.giphy.com/media/AWzOVmOFxc65WS6518/giphy.gif)
+
 ## Wins
 * CSS - I think my CSS is quite clean compared to past projects. I am also proud of the styling of the site overall.
 * Gameplay Logic - I felt I had a strong grasp of the game logic and how to sort out that logic in the data model before creating DOM manipulations. I did get stuck on one aspect of checking win conditions, but worked with my mentor to talk through the logic and eventually found my blocker and surpassed it! 
