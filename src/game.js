@@ -38,21 +38,21 @@ class Game {
         this.clickCount = 0;
         this.playerOne.saveWinsToStorage();
         this.playerTwo.saveWinsToStorage();
-        this.activePlayer.winner = true;
+        this.activePlayer.isWinner = true;
       }
-    }
+    };
   }
 
   checkDrawConditions() {
     if (this.clickCount === 9) {
       this.clickCount = 0;
-      this.activePlayer.draw = true;
-    }
+      this.activePlayer.isDraw = true;
+    };
   }
 
   resetGame(player) {
   player.board = [];
-  player.draw = false;
-  player.winner = false;
+  player.isDraw = false;
+  player.isWinner = false;
   }
 }

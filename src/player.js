@@ -3,8 +3,8 @@ class Player {
     this.id = id;
     this.token = token;
     this.wins = 0;
-    this.winner = false;
-    this.draw = false;
+    this.isWinner = false;
+    this.isDraw = false;
     this.board = [
       '', '', '',
       '', '', '',

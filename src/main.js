@@ -20,10 +20,12 @@ mainPageButton.addEventListener('click', openMainPage);
 function beginGame() {
   if (localStorage['one wins'] > 0) {
     game.playerOne.retrieveWinsFromStorage();
-  }
+  };
+
   if (localStorage['two wins'] > 0) {
     game.playerTwo.retrieveWinsFromStorage();
-  }
+  };
+
   playerOneWinDisplay.innerText = game.playerOne.wins || 0;
   playerTwoWinDisplay.innerText = game.playerTwo.wins || 0;
 }
@@ -39,7 +41,7 @@ function addPlayerMark() {
     manageGamePlay();
     continueGamePlay();
     changePlayerTurnDisplay();
-  }
+  };
 }
 
 function manageGamePlay() {
@@ -54,16 +56,17 @@ function changePlayerTurnDisplay() {
 }
 
 function changeWinStatusDisplay() {
-  if (game.activePlayer.winner) {
+  if (game.activePlayer.isWinner) {
     gameWinner.classList.remove("hidden");
     gameWinner.innerText = `${game.activePlayer.token} wins!`;
     setTimeout(resetGameboard, 1000);
-  }
-  if (game.activePlayer.draw) {
+  };
+
+  if (game.activePlayer.isDraw) {
     gameWinner.classList.remove("hidden");
     gameWinner.innerText = `It's a draw`;
     setTimeout(resetGameboard, 1000);
-  }
+  };
 }
 
 function continueGamePlay() {
@@ -77,6 +80,7 @@ function resetGameboard() {
     boxes[i].innerHTML = '';
     boxes[i].classList.remove('full');
   }
+
   game.resetGame(game.playerOne);
   game.resetGame(game.playerTwo);
 }
