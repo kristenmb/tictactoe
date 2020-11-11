@@ -4,7 +4,7 @@
   This is a two player game of tic tac toe.
 
 ## Usage
-  Welcome to rainforest tic tac toe. At the top of the page you will see an indication of who's turn it is. The first player can choose any open square on the gameboard in the center of the screen. Once the first player chooses a space, their token will appear and, as depicted at the top of the page, it is now the second player's turn. The goal of the game is to get three of a player's token in a row, either horizontally, vertically, or diagonally from one corner of the game board to the other.<br>
+  Welcome to Rainforest TicTacToe. At the top of the page you will see an indication of who's turn it is. The first player can choose any open square on the gameboard in the center of the screen. Once the first player chooses a space, their token will appear and, as depicted at the top of the page, it is now the second player's turn. The goal of the game is to get three of a player's token in a row, either horizontally, vertically, or diagonally from one corner of the game board to the other.<br>
   
 #### General Game Play
   If a player wins, a banner will pop up to annouce their win! The winners' win count will increase, and a new game will automatically begin. 
@@ -22,7 +22,7 @@
 ![](https://media.giphy.com/media/int4sf0DPSRmuDQYUe/giphy.gif)
 
 #### Why the Rainforest?
-  So why are we playing tic tac toe in the rainforest? Click the "Why Rainforests?" button to understand the inspiration! Return to game play using the "Back to Game" button.
+  So why are we playing TicTacToe in the rainforest? Click the "Why Rainforests?" button to understand the inspiration! Return to game play using the "Back to Game" button.
   
 ![](https://media.giphy.com/media/mcTjKcg0HiQt2jEyHs/giphy.gif)
 
@@ -51,9 +51,10 @@ Click [here](https://gist.github.com/kristenmb/07a3b9c79b42d07a26dc9686c36f330c)
 * Gameplay Logic - I felt I had a strong grasp of the game logic and how to sort out that logic in the data model before creating DOM manipulations. I did get stuck on one aspect of checking win conditions, but worked with my mentor to talk through the logic and eventually found my blocker and surpassed it! 
 
 ## Future State
-* player login with name options and emoji choices
-* more in depth look at aria labels how to make the site more accessible
-* win animations 
+In future iterations of this site, I would love to implement a few additional features:
+* Player Login: A player login page where users could enter their name and choose an emoji to represent their plays.
+* Better Accessibility: I would love to take a more in depth look at aria labels and how to make the site more accessible overall. I was able to start adding aria-labels, but didn't have a chance to fully discover how they could be utilized as the DOM is manipulated. 
+* Animations: A simple addition, but some animations on a win would be a fun addition to the flow of game play. 
 
 ## Acknowledgements
 [Trisha Langlois](https://github.com/trishalanglois)
