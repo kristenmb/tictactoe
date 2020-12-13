@@ -34,6 +34,8 @@
 3. Open repository in your command line.
 4. Run `open index.html` to view it in the browser
 
+OR find live link [HERE](https://kristenmb.github.io/tictactoe/)
+
 ## Program Languages
 * JavaScript
 * HTML
